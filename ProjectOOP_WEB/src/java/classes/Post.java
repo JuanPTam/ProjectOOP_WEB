@@ -9,6 +9,7 @@ package classes;
  *
  * @author CAMILO
  */
+import java.util.Date;
 import java.util.HashMap;
 import assistants.State;
 
@@ -20,13 +21,14 @@ public class Post {
     private int id;
     private int userId;
     private State state = State.ACTIVE;
-    // date
+    private Date date; 
     private HashMap<Integer, Integer> reactionsIds = new HashMap<>();
 
     public Post(String description, int userId) {
         super();
         this.setDescription(description);
         this.setUserId(userId);
+        this.date = new Date();
         Post.upIds();
         this.setId(Post.postsIds);
         Post.posts.put(this.id, this);
